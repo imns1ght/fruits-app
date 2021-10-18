@@ -1,0 +1,9 @@
+com/fruitsapp/BuildConfig.java
+ com.fruitsapp.BuildConfig
+com/fruitsapp/MainApplication.java
+ com.fruitsapp.MainApplication
+ com.fruitsapp.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
+com/fruitsapp/MainActivity.java
+ com.fruitsapp.MainActivity

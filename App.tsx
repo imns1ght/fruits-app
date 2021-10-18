@@ -1,30 +1,63 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack'
-import { NavigationScreens } from './src/navigation/types'
-import { LoginScreen, CatalogScreen, CheckoutScreen } from './src'
+import { Provider } from 'react-redux'
 
-// type Screen2Props = NativeStackScreenProps<RootParamList, 'Screen2'>
+import { BackButton } from '~/components'
+import { HeaderButtons } from '~/containers'
+import { availableProducts, ProductsContext } from '~/contexts'
+import { RootStackParamList } from '~/navigation/types'
+import { store } from '~/redux/store'
+import { CatalogScreen, CheckoutScreen, LoginScreen, ProductScreen } from '~/screens'
+import { Colors } from '~/styles'
 
-// const Screen2 = ({ route }: Screen2Props) => {
-//   return <Text>{route.params.paramA}</Text>
-// }
+const Stack = createStackNavigator<RootStackParamList>()
 
-const Root = createStackNavigator<NavigationScreens>()
-const options: StackNavigationOptions = {
-  headerShown: false,
+const navigationOptions: StackNavigationOptions = {
+  headerShown: true,
+  headerRight: () => <HeaderButtons />,
+  headerStyle: { backgroundColor: Colors.green },
+  headerBackImage: () => <BackButton />,
+  headerTitleStyle: { color: Colors.white },
 }
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Root.Navigator screenOptions={options} initialRouteName='LoginScreen'>
-        <Root.Screen name='LoginScreen' component={LoginScreen} />
-        <Root.Screen name='CatalogScreen' component={CatalogScreen} />
-        <Root.Screen name='CheckoutScreen' component={CheckoutScreen} />
-      </Root.Navigator>
-    </NavigationContainer>
-  )
-}
+const App = () => (
+  <Provider store={store}>
+    <ProductsContext.Provider value={availableProducts}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={navigationOptions} initialRouteName='LoginScreen'>
+          <Stack.Screen
+            name='LoginScreen'
+            component={LoginScreen}
+            options={{
+              title: 'Welcome to the Fruit Store!',
+              headerRight: undefined,
+            }}
+          />
+          <Stack.Screen
+            name='CatalogScreen'
+            component={CatalogScreen}
+            options={{
+              title: 'Store',
+            }}
+          />
+          <Stack.Screen
+            name='ProductScreen'
+            component={ProductScreen}
+            options={({ route }) => ({
+              title: route.params.name,
+              headerTitleStyle: { color: 'transparent' },
+            })}
+          />
+          <Stack.Screen
+            name='CheckoutScreen'
+            component={CheckoutScreen}
+            options={{ title: 'Your cart', headerRight: undefined }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ProductsContext.Provider>
+  </Provider>
+)
 
 export default App

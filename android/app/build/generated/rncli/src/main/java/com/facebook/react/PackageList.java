@@ -17,6 +17,8 @@ import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-vector-icons
+import com.oblador.vectoricons.VectorIconsPackage;
 
 public class PackageList {
   private Application application;
@@ -64,7 +66,8 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
-      new RNGestureHandlerPackage()
+      new RNGestureHandlerPackage(),
+      new VectorIconsPackage()
     ));
   }
 }

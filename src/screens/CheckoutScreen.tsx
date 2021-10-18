@@ -1,11 +1,13 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { StackNavigationProp } from '@react-navigation/stack'
+import { useAppDispatch } from '~/hooks'
 import { useNavigation } from '@react-navigation/native'
-import { NavigationScreens } from '../navigation/types'
+import { RootStackParamList } from '~/navigation/types'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 const CheckoutScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<NavigationScreens, 'CheckoutScreen'>>()
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'CheckoutScreen'>>()
+  const dispatch = useAppDispatch()
 
   return (
     <View>
