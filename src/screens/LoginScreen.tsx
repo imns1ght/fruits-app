@@ -22,7 +22,7 @@ const LoginScreen = () => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.formContainer}>
-        <Input title='Username' value={userState} setValue={setUserState} autoFocus />
+        <Input title='Username' value={userState} setValue={setUserState} />
         <Input title='Password' value={passwordState} setValue={setPasswordState} password />
         <View style={{ marginTop: 15, alignSelf: 'flex-end' }}>
           <FlatButton

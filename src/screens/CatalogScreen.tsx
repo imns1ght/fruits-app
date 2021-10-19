@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { CatalogProductCard } from '~/containers'
-import { ProductInfo } from '~/types'
+import { BaseProductInfo } from '~/types'
 import { FlatList } from 'react-native-gesture-handler'
 import { ProductsContext } from '~/contexts/products'
 import { Input } from '~/components'
@@ -20,7 +20,7 @@ const CatalogScreen = () => {
   )
 
   const renderProductCard = React.useCallback(
-    (product: { item: ProductInfo }) => <CatalogProductCard product={product.item} />,
+    (product: { item: BaseProductInfo }) => <CatalogProductCard product={product.item} />,
     []
   )
 

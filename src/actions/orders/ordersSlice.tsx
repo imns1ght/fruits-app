@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Order } from '~/types'
+import { Order, Fruit } from '~/types'
 
 interface OrdersState {
   products: Order[]
@@ -19,13 +19,23 @@ export const ordersSlice = createSlice({
       // if exists, increment quantity
       if (orderIdx !== -1) state.products[orderIdx].quantity += action.payload.quantity
       // else, add new product
-      else state.products.push({ name: action.payload.name, quantity: action.payload.quantity })
+      else
+        state.products.push({
+          name: action.payload.name,
+          price: action.payload.price,
+          quantity: action.payload.quantity,
+        })
     },
-    removeProduct: (state, action: PayloadAction<Order>) => {
+    removeProduct: (state, action: PayloadAction<Fruit>) => {
       // check if exists
-      const orderIdx = state.products.findIndex(order => order.name === action.payload.name)
-      // if exists, delete product
-      if (orderIdx !== -1) state.products.splice(orderIdx, 1)
+      const orderIdx = state.products.findIndex(order => order.name === action.payload)
+
+      if (orderIdx !== -1) {
+        // if exists, decrease quantity
+        if (state.products[orderIdx].quantity > 1) state.products[orderIdx].quantity--
+        // if exists and quantity is 0, remove product
+        else state.products.splice(orderIdx, 1)
+      }
     },
   },
 })

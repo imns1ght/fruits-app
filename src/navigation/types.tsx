@@ -1,8 +1,8 @@
-import { ProductInfo } from '~/types'
+import { FullProductInfo } from '~/types'
 
 export type RootStackParamList = {
   LoginScreen: undefined
   CatalogScreen: undefined
   CheckoutScreen: undefined
-  ProductScreen: ProductInfo
+  ProductScreen: FullProductInfo
 }

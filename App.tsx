@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack'
 import { Provider } from 'react-redux'
 
-import { BackButton } from '~/components'
+import { BackButton, HomeButton } from '~/components'
 import { HeaderButtons } from '~/containers'
 import { availableProducts, ProductsContext } from '~/contexts'
 import { RootStackParamList } from '~/navigation/types'
@@ -52,7 +52,7 @@ const App = () => (
           <Stack.Screen
             name='CheckoutScreen'
             component={CheckoutScreen}
-            options={{ title: 'Your cart', headerRight: undefined }}
+            options={{ title: 'Your cart', headerRight: undefined, headerLeft: HomeButton }}
           />
         </Stack.Navigator>
       </NavigationContainer>

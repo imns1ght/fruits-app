@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
-import { ProductImage, ModifyOrderBar } from '~/containers'
+import { ProductImage, AddProductBar } from '~/containers'
 import { useRoute, RouteProp } from '@react-navigation/native'
 
 import { RootStackParamList } from '~/navigation/types'
@@ -19,7 +19,7 @@ const ProductScreen = () => {
         <Price price={price} style={styles.price} showPrefix showSuffix />
       </View>
       <Text style={styles.description}>{description}</Text>
-      <ModifyOrderBar productName={name} />
+      <AddProductBar product={{ name, price }} />
     </View>
   )
 }

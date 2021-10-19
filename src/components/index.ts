@@ -1,5 +1,6 @@
 export { default as Card } from './Card'
 export { default as Input } from './Input'
+export { default as ChangeQuantity } from './ChangeQuantity'
 export { default as Price } from './texts/Price'
 export * from './buttons'
 export * from './texts'

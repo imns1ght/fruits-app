@@ -1,7 +1,7 @@
 import React from 'react'
-import { ProductInfo } from '~/types'
+import { FullProductInfo } from '~/types'
 
-export const availableProducts: ProductInfo[] = [
+export const availableProducts: FullProductInfo[] = [
   {
     name: 'Apple',
     price: 4.55,

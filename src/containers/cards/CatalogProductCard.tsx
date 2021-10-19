@@ -6,11 +6,11 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { Card } from '~/components'
 import { RootStackParamList } from '~/navigation/types'
 import { Colors, FontSize } from '~/styles'
-import { ProductInfo } from '~/types'
-import ProductImage from './ProductImage'
+import { BaseProductInfo } from '~/types'
+import ProductImage from '../ProductImage'
 import { Price } from '~/components'
 
-const CatalogProductCard = ({ product }: { product: ProductInfo }) => {
+const CatalogProductCard = ({ product }: { product: BaseProductInfo }) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'ProductScreen'>>()
 
   const onPress = React.useCallback(

@@ -1,3 +1,5 @@
 export { default as FlatButton } from './FlatButton'
 export { default as CartButton } from './CartButton'
 export { default as BackButton } from './BackButton'
+export { default as HomeButton } from './HomeButton'
+export { default as ActionWithPriceButton } from './ActionWithPriceButton'
