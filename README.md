@@ -41,7 +41,17 @@ Assuming you have installed [Git](https://git-scm.com/), [Yarn](https://classic.
 
 3. Runnning
 
-   You can run the project using an [emulator](https://reactnative.dev/docs/0.64/environment-setup)
+   You can run the project using an [emulator](https://reactnative.dev/docs/0.64/environment-setup), then:
+   
+   ```bash
+   yarn start
+   ```
+   
+   and 
+
+   ```bash
+   yarn android or yarn ios
+   ```
 
 ## Contributing
 
